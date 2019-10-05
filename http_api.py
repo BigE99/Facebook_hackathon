@@ -3,7 +3,7 @@ from sys import stdout
 
 app = Flask(__name__)
 
-# Setup a command route to listen for prefix advertisements 
+# Setup a command route to listen for prefix advertisements
 @app.route('/command', methods=['POST'])
 def command():
     command = request.form['command']

@@ -1,27 +1,4 @@
 
-Skip to content
-Pull requests
-Issues
-Marketplace
-Explore
-@BigE99
-
-1
-0
-
-    0
-
-thepacketgeek/nanog77-hackathon-demo
-Code
-Issues 0
-Pull requests 0
-Actions
-Wiki
-Security
-Insights
-nanog77-hackathon-demo/sniffer/detect.py
-@thepacketgeek thepacketgeek Removing FlowKey from FlowStatus init febc72c 4 days ago
-executable file 178 lines (139 sloc) 5.49 KB
 #!/usr/bin/env python3
 import logging
 import sys
@@ -81,7 +58,7 @@ class FlowKey(NamedTuple):
                 packet[TCP].dport,
             )
         return None
-    
+
     def __repr__(self) -> str:
         return f"{self.src_ip}:{self.src_port} <--> {self.dest_ip}:{self.dest_port}"
 
@@ -149,7 +126,7 @@ def trigger_exabgp(flow: FlowKey):
     for template in command_templates:
         command = template.format(src_ip=flow.src_ip, dest_ip=flow.dest_ip)
         send_exabgp_command(command)
-    
+
 
 
 def process_packet(packet: Packet) -> Optional[str]:
@@ -195,18 +172,3 @@ if __name__ == "__main__":
     else:
         logging.info("Detecting retransmits from wire...")
         packets = sniff_func()
-
-    © 2019 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Status
-    Help
-
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
-
