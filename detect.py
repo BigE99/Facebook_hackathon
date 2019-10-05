@@ -121,7 +121,7 @@ def trigger_exabgp(flow: FlowKey):
     # This could also include the TCP src/dest ports
     command_templates = [
         "announce flow route source {src_ip}/128 destination {dest_ip}/128 redirect 6:302",
-        "announce flow route source {dest_ip}/128 destination {src_ip}/128 redirect 6:302",
+    #    "announce flow route source {dest_ip}/128 destination {src_ip}/128 redirect 6:302",
     ]
     for template in command_templates:
         command = template.format(src_ip=flow.src_ip, dest_ip=flow.dest_ip)
